@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1 user-scalable=0"/>
+    <title>html5 移动端单页面布局</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!--页面主体部分-->
+    <div class="main">
+      <div class="main1">
+        <section class="curr">
+            <img src="img/sk1.jpg" alt="">
+            <img src="img/sk1.jpg" alt="">
+            <img src="img/sk1.jpg" alt="">
+            <img src="img/sk1.jpg" alt="">
+        </section>
+        <section  class="hide">
+            <img src="img/3.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+        </section>
+        <section class="hide">
+            <img src="img/4.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+        </section>
+        <section class="hide">
+            <img src="img/2.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+        </section>
+      </div>
+      <div class="main2">
+        <section >
+            <img src="img/sk2.jpg" alt="">
+            <img src="img/sk2.jpg" alt="">
+            <img src="img/sk2.jpg" alt="">
+        </section>
+      </div>
+    </div>
+    <!--页面菜单按钮-->
+    <div class="menu">
+        <ul>
+            <li class="curr">Html5</li>
+            <li>Css3</li>
+            <li>Javascript</li>
+            <li>About</li>
+        </ul>
+    </div>
+
+
+    <script src="zepto.min.js"></script> 
+    <script src="touch.js"></script>
+    <script src="fx.js"></script>
+
+    <script>
+        $(function(){
+          // 点击切换
+            $(".menu li").each(function(index){
+                $(this).tap(function(){
+                    $(this).addClass("curr").siblings().removeClass("curr");
+                    $(".main section").eq(index).show().siblings().hide();
+                    if(index==3){
+                        $(".menu").addClass("menucurr");
+                    }else{
+                        $(".menu").removeClass("menucurr");
+                    }
+                })
+            });
+
+            // 点击滑动
+            $(".main2").tap(function(){
+              if($(this).css('right')=="0px"){
+                $(this).animate({'right':'-80%'},200,'ease');
+              }else{
+                $(this).animate({'right':'0px'},200,'ease');
+              }
+            })
+
+            // 滑动出来
+            $(".main2").on('swipeLeft',function(){
+              console.log('swipeLeft');
+              $(this).animate({'right':'0px'},200,'ease');
+            })
+
+            $(".main2").on('swipeRight',function(){
+              $(this).animate({'right':'-80%'},200,'ease');
+            })
+        })
+    </script>
+
+</body>
+</html>

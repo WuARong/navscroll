@@ -1,0 +1,34 @@
+/*初始化css*/
+*{ margin:0; padding: 0;}
+li{ list-style-type: none;}
+img{ max-width: 100%; display: block; margin: 0 auto 5px auto;}
+html,body{ width: 100%; height: 100%; background: #e4e4e4; 
+    -webkit-tap-highlight-color: rgba(88,44,22,0.9);
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;
+ 
+}
+/*主体页面样式*/
+.main{ width: 100%; height: auto; position: relative;}
+.main section{ width: 100%; height: auto; position:absolute; left: 0; top:0; }
+.main section.hide{ display: none;}
+.main section.curr{ display: block;}
+ 
+/*菜单样式*/
+.menu{ width: 100%; height: 45px; position: fixed; bottom:0; left:0; box-shadow: #2d2d2d 0 0 4px;background:#0099cc;}
+.menu.menucurr{ background: #ea4c88;}
+.menu ul{width: 100%; height: 100%; }
+.menu li{ width: 23.9%; height: 100%; float: left; line-height: 45px; text-align: center; background: #0099cc; color:#fff;}
+.menu li.curr{ background: #ea4c88;}
+.menu li:nth-child(1),.menu li:nth-child(2),.menu li:nth-child(3){ border-right:1px solid #663300;} 
+
+
+.main2 {
+  position: fixed;
+  top: 0;
+  right: -80%;
+  width: 100%;
+  height: 100%;
+  /*overflow: hidden;*/
+  background-color: pink;
+}
